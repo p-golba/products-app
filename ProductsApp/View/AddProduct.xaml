@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProductsApp.View.AddProduct"
+             Title="Add Product">
+    
+    <ContentPage.Content>
+
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label
+                Text="Add Product"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Product Name"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="18"/>
+            
+            <Entry
+                Placeholder="Enter Product name..." />
+            
+            <Label
+                Text="Price"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="18"/>
+            
+            <Entry
+                Placeholder="Enter Product price..."
+                Keyboard="Numeric" />
+            
+            <Label
+                Text="Quantity"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="18"/>
+            
+            <Entry
+                Placeholder="Enter Product quantity..."
+                Keyboard="Numeric" />
+            
+            <HorizontalStackLayout
+                Spacing="15"
+                HorizontalOptions="Start">
+                
+                <Label
+                    Text="Available" 
+                    SemanticProperties.HeadingLevel="Level3"
+                    FontSize="18"/>
+            
+                <Switch />
+                
+            </HorizontalStackLayout>
+            
+            
+            <HorizontalStackLayout
+                Spacing="15"
+                HorizontalOptions="Center">
+                
+                <Button
+                    x:Name="AddProductSaveBtn"
+                    Text="Save"
+                    SemanticProperties.Hint="Save your Product"
+                    HorizontalOptions="Center" />
+            
+                <Button
+                    x:Name="AddProductCancelBtn"
+                    Clicked="OnAddProductCancelClicked"
+                    Text="Cancel"
+                    SemanticProperties.Hint="Dismiss product"
+                    HorizontalOptions="Center" />
+                
+            </HorizontalStackLayout>
+
+
+        </VerticalStackLayout>
+
+    </ContentPage.Content>
+    
+</ContentPage>
