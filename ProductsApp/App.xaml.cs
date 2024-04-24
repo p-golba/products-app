@@ -1,11 +1,11 @@
 ﻿namespace ProductsApp;
 
-public partial class App : Application
+public partial class App
 {
-    public App()
+    public App(MainPage mainPage)
     {
         InitializeComponent();
 
-        MainPage = new NavigationPage(new MainPage());
+        MainPage = new NavigationPage(mainPage);
     }
 }

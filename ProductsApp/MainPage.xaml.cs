@@ -2,16 +2,25 @@
 
 namespace ProductsApp;
 
-public partial class MainPage : ContentPage
+public partial class MainPage
 {
+    private readonly AddProduct _addProduct;
+    private readonly ProductsList _productsList;
 
-    public MainPage()
+    public MainPage(AddProduct addProduct, ProductsList productsList)
     {
         InitializeComponent();
+        _addProduct = addProduct;
+        _productsList = productsList;
     }
 
-    private async void OnAddProductBtnClick(object sender, EventArgs e)
+    private async void AddProductBtn_OnClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new AddProduct());
+        await Navigation.PushAsync(_addProduct);
+    }
+
+    private async void CounterBtn_OnClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(_productsList);
     }
 }

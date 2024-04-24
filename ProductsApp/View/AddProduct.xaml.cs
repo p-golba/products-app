@@ -1,13 +1,16 @@
-﻿namespace ProductsApp.View;
+﻿using ProductsApp.ViewModel;
 
-public partial class AddProduct : ContentPage
+namespace ProductsApp.View;
+
+public partial class AddProduct
 {
-    public AddProduct()
+    public AddProduct(ProductViewModel productViewModel)
     {
         InitializeComponent();
+        BindingContext = productViewModel;
     }
 
-    private async void OnAddProductCancelClicked(object sender, EventArgs eventArgs)
+    private async void AddProductCancelBtn_OnClicked(object sender, EventArgs e)
     {
         await Navigation.PopAsync();
     }

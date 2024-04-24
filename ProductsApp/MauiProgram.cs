@@ -1,4 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
+using ProductsApp.Services;
+using ProductsApp.View;
+using ProductsApp.ViewModel;
+using Refit;
 
 namespace ProductsApp;
 
@@ -13,6 +17,18 @@ public static class MauiProgram
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
+
+        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<AddProduct>();
+        builder.Services.AddSingleton<ProductsList>();
+        builder.Services.AddTransient<ProductViewModel>();
+        builder.Services.AddTransient<ProductsListViewModel>();
+        builder.Services.AddRefitClient<IProductsService>()
+            .ConfigureHttpClient(c =>
+            {
+                c.BaseAddress = new Uri("http://10.0.2.2:5000/api");
+                c.Timeout = TimeSpan.FromSeconds(10);
             });
 
 #if DEBUG

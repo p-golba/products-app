@@ -18,19 +18,19 @@
 
             <Button
                 x:Name="AddProductBtn"
-                Clicked="OnAddProductBtnClick"
+                Clicked="AddProductBtn_OnClicked"
                 Text="Add Product"
                 SemanticProperties.Hint="Create your product"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="CounterBtn"
+                Clicked="CounterBtn_OnClicked"
                 Text="List of products"
                 SemanticProperties.Hint="Display your product list"
                 HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ContentPage.Content>
-
 
 </ContentPage>
