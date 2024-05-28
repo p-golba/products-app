@@ -21,9 +21,11 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<AddProduct>();
+        builder.Services.AddSingleton<EditProduct>();
         builder.Services.AddSingleton<ProductsList>();
         builder.Services.AddTransient<ProductViewModel>();
         builder.Services.AddTransient<ProductsListViewModel>();
+        builder.Services.AddTransient<EditProductViewModel>();
         builder.Services.AddRefitClient<IProductsService>()
             .ConfigureHttpClient(c =>
             {

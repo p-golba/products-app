@@ -6,12 +6,14 @@ namespace ProductsApp.View;
 public partial class ProductsList : ContentPage
 {
     private readonly ProductsListViewModel _productsListViewModel;
+    private readonly EditProductViewModel _editProductViewModel;
 
-    public ProductsList(ProductsListViewModel productsListViewModel)
+    public ProductsList(ProductsListViewModel productsListViewModel, EditProductViewModel editProductViewModel)
     {
         InitializeComponent();
         BindingContext = productsListViewModel;
         _productsListViewModel = productsListViewModel;
+        _editProductViewModel = editProductViewModel;
     }
 
     protected override async void OnNavigatedTo(NavigatedToEventArgs args)
@@ -20,8 +22,8 @@ public partial class ProductsList : ContentPage
         await _productsListViewModel.LoadProducts();
     }
 
-    private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+    private async void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
-        Console.WriteLine(((Product) e.SelectedItem).Id);
+        await Navigation.PushAsync(new EditProduct(((Product)e.SelectedItem).Id, _editProductViewModel));
     }
 }

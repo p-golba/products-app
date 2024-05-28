@@ -18,7 +18,8 @@ public partial class ProductsListViewModel : ObservableObject
 
     public async Task LoadProducts()
     {
-        var products = await _productsService.GetProduct();
+        var products = await _productsService.GetProducts();
+        ProductsList.Clear();
         foreach (var product in products)
         {
             ProductsList.Add(product);

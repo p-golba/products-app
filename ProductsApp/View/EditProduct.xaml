@@ -2,9 +2,9 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:ProductsApp.Model"
+             xmlns:viewModel="clr-namespace:ProductsApp.ViewModel"
              x:Class="ProductsApp.View.EditProduct"
-             x:DataType="model:Product">
+             x:DataType="viewModel:EditProductViewModel">
     <ContentPage.Content>
         
         <VerticalStackLayout
@@ -24,7 +24,7 @@
                 FontSize="18" />
 
             <Entry
-                Text="{Binding ProductName}"
+                Text="{Binding Product.ProductName}"
                 Placeholder="Enter Product name..." />
 
             <Label
@@ -33,7 +33,7 @@
                 FontSize="18" />
 
             <Entry
-                Text="{Binding Price}"
+                Text="{Binding Product.Price}"
                 Placeholder="Enter Product price..."
                 Keyboard="Numeric" />
 
@@ -43,7 +43,7 @@
                 FontSize="18" />
 
             <Entry
-                Text="{Binding Quantity}"
+                Text="{Binding Product.Quantity}"
                 Placeholder="Enter Product quantity..."
                 Keyboard="Numeric" />
 
@@ -57,7 +57,7 @@
                     FontSize="18" />
 
                 <Switch
-                    IsToggled="{Binding IsAvailable}" />
+                    IsToggled="{Binding Product.IsAvailable}" />
 
             </HorizontalStackLayout>
 
@@ -67,21 +67,20 @@
                 HorizontalOptions="Center">
 
                 <Button
-                    Command="{Binding PostProductCommand}"
                     x:Name="AddProductSaveBtn"
+                    Clicked="AddProductSaveBtn_OnClicked"
                     Text="Save"
                     SemanticProperties.Hint="Save your Product"
                     HorizontalOptions="Center" />
 
                 <Button
-                    Command="{Binding DeleteProductCommand}"
                     x:Name="AddProductCancelBtn"
+                    Clicked="AddProductCancelBtn_OnClicked"
                     Text="Delete"
                     SemanticProperties.Hint="Delete Product"
                     HorizontalOptions="Center" />
 
             </HorizontalStackLayout>
-
 
         </VerticalStackLayout>
     </ContentPage.Content>
