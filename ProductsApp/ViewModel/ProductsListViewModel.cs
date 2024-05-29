@@ -14,7 +14,7 @@ public partial class ProductsListViewModel : ObservableObject
         _productsService = productsService;
     }
 
-    [ObservableProperty] private ObservableCollection<Product> _productsList = new ObservableCollection<Product>();
+    [ObservableProperty] private ObservableCollection<Product> _productsList = new();
 
     public async Task LoadProducts()
     {
